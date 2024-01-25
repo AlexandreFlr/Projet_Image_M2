@@ -18,10 +18,10 @@ def lire_image(chemin_image):
     print(f"Dimensions de l'image : {largeur} x {hauteur}, Canaux : {canaux}")
 
     image = cv2.resize(image, (1024,1024))
-    # Afficher l'image (peut nécessiter l'utilisation de cv2.imshow() dans un environnement interactif)
+    # Afficher l'image
     cv2.imwrite("Image.jpg", image)
 
-    # Attendre jusqu'à ce que la touche ESC (27) soit pressée ou que la fenêtre soit fermée
+    # Attendre jusqu'à ce que la touche echap soit pressée ou que la fenêtre soit fermée
     key = cv2.waitKeyEx(0)
     if key == 27:  # Touche ESC
         cv2.destroyAllWindows()
