@@ -54,7 +54,7 @@ def imageProche(chemin_image, sexe, nom_dossier):
             image_proche_bis = cv2.resize(image_proche, (128,128))
             #if image.shape != image_proche.shape:
                 #image_proche_bis = cv2.resize(image, (image_proche.shape[1], image_proche.shape[0]))
-            print(i)
+            #print(i)
             # Comparer les images en utilisant la SSIM
             score_ssim = ssim(image_bis, image_proche_bis, channel_axis=2)
             if score_ssim > score_opt :
@@ -66,7 +66,7 @@ def imageProche(chemin_image, sexe, nom_dossier):
             nom_image = f"{indice:03d}_{i:03d}.jpg"
             chemin_complet = os.path.join(chemin_images, nom_image)
             image = cv2.imread(chemin_complet)
-            cv2.imwrite(f"./animation/{indice:03d}_{i+1:03d}.jpg", image)
+            cv2.imwrite(f"./{nom_dossier}/{indice:03d}_{i+1:03d}.jpg", image)
     if sexe == "h" :
         score_opt = -1
         indice = -1
@@ -77,19 +77,19 @@ def imageProche(chemin_image, sexe, nom_dossier):
             image_proche_bis = cv2.resize(image_proche, (128,128))
             #if image.shape != image_proche.shape:
                 #image_proche_bis = cv2.resize(image, (image_proche.shape[1], image_proche.shape[0]))
-            print(i)
+            #print(i)
             # Comparer les images en utilisant la SSIM
             score_ssim = ssim(image_bis, image_proche_bis, channel_axis=2)
             if score_ssim > score_opt :
                 score_opt = score_ssim
                 image_opt = image_proche
                 indice = i
-        cv2.imwrite(f"./animation/{indice:03d}_000.jpg", image)
+        cv2.imwrite(f"./{nom_dossier}/{indice:03d}_000.jpg", image)
         for i in range(10):
             nom_image = f"{indice:03d}_{9-i:03d}.jpg"
             chemin_complet = os.path.join(chemin_images, nom_image)
             image = cv2.imread(chemin_complet)
-            cv2.imwrite(f"{nom_dossier}{indice:03d}_{i+1:03d}.jpg", image)
+            cv2.imwrite(f"./{nom_dossier}/{indice:03d}_{i+1:03d}.jpg", image)
 
         
         #cv2.imwrite("image_opti.jpg", image_opt)
