@@ -2,7 +2,7 @@
 
 Run the script `pretrained_model.py`
 
-Once you have completed the setup, execute the `edit.py` script :
+Once you have completed the setup, execute the `edit.py` script (cd stylegan) :
 
 ```bash
 python3 edit.py \
